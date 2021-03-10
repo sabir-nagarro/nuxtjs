@@ -1,5 +1,10 @@
 export default {
-  mode: 'spa',
+   ssr: "true",
+  /*
+   ** Nuxt target
+   ** See https://nuxtjs.org/api/configuration-target
+   */
+  target: "server",
   /*
    ** Headers of the page
    */
