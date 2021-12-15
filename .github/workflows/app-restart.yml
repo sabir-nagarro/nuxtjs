@@ -18,7 +18,7 @@ jobs:
       - name: restart step connect
         uses: appleboy/ssh-action@master
         with:
-          host: 172.31.19.128
+          host: ec2-54-153-232-196.ap-southeast-2.compute.amazonaws.com
           username: ubuntu
           key: ${{ secrets.NAGARRO_PEM }}
           port: 22
