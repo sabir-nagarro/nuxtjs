@@ -15,7 +15,15 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           
-      - name: restart step     
+      - name: restart step connect
+        uses: appleboy/ssh-action@master
+        with:
+          host: 172.31.19.128
+          username: ubuntu
+          key: ${{secrets.NAGARRO_PEM }}
+          script: whoami
+        
+      - name: restart step
         run: |
           echo "----- PM2 Restarted--------------"
           ssh -o StrictHostKeyChecking=no ubuntu@172.31.19.128
