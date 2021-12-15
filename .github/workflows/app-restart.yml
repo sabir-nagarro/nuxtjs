@@ -16,7 +16,12 @@ jobs:
     
     steps:
       - name: hello
+      - uses: aws-actions/configure-aws-credentials@v1
+      -  with:
+          role-to-assume: arn:aws:iam::100889562744:role/jenkins-role
+          aws-region: ap-southeast-2
       - run: |
+          ssh -o StrictHostKeyChecking=no ubuntu@172.31.19.128
           pm2 flush 
           pm2 kill
           pm2 start
