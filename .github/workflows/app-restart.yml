@@ -20,13 +20,14 @@ jobs:
         with:
           host: 172.31.19.128
           username: ubuntu
-          key: ${{secrets.NAGARRO_PEM }}
+          key: ${{ secrets.NAGARRO_PEM }}
+          port: 22
           script: whoami
         
       - name: restart step
         run: |
           echo "----- PM2 Restarted--------------"
-          ssh -o StrictHostKeyChecking=no ubuntu@172.31.19.128
+          # ssh -o StrictHostKeyChecking=no ubuntu@172.31.19.128
           # pm2 flush 
           # pm2 kill
           # pm2 start
