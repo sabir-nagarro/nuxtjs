@@ -2,24 +2,19 @@ name: App Restart
 
 on:
   workflow_dispatch:
-    inputs:
-      logLevel:
-        description: "Log level"
-        required: true
-        default: "warning"
-      tags:
-        description: "Test scenario tags"
 
 jobs:
   restart:
     runs-on: ubuntu-latest
     
     steps:
-      - name: hello
+      - name: setup credentials
       - uses: aws-actions/configure-aws-credentials@v1
-      -  with:
+      - with:
           role-to-assume: arn:aws:iam::100889562744:role/jenkins-role
           aws-region: ap-southeast-2
+          
+      - name: restart step     
       - run: |
           ssh -o StrictHostKeyChecking=no ubuntu@172.31.19.128
           pm2 flush 
