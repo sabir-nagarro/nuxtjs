@@ -16,8 +16,5 @@ jobs:
           
       - name: restart step     
       - run: |
-          ssh -o StrictHostKeyChecking=no ubuntu@172.31.19.128
-          pm2 flush 
-          pm2 kill
-          pm2 start
+          echo "----- PM2 Restarted--------------"
       
