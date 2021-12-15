@@ -11,9 +11,13 @@ on:
         description: "Test scenario tags"
 
 jobs:
-  printInputs:
+  restart:
     runs-on: ubuntu-latest
+    
     steps:
+      - name: hello
       - run: |
-          echo "Log level: ${{ github.event.inputs.logLevel }}"
-          echo "Tags: ${{ github.event.inputs.tags }}"
+          pm2 flush 
+          pm2 kill
+          pm2 start
+      
