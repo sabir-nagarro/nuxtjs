@@ -14,5 +14,7 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          role-to-assume: arn:aws:iam::100889562744:role/storefront-github-action
-      
+          
+      - name: run command
+        run: |
+            aws ssm get-command-invocation --command-id "3df9eeb5-fee8-4e6a-b7b0-5350c353399e" --instance-id "i-05edcfe1a31b1d1bd" --region ap-southeast-2
